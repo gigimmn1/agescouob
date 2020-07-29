@@ -1,6 +1,6 @@
  <!-- Sidebar -->
 
- <ul class="navbar-nav bg-gradient-success text-white sidebar sidebar-dark accordion" id="accordionSidebar" >
+ <ul class="navbar-nav bg-success text-white sidebar sidebar-dark accordion" id="accordionSidebar" >
 
 <!-- Sidebar - Brand -->
 
