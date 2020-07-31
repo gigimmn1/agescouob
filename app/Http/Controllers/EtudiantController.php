@@ -56,7 +56,7 @@ class EtudiantController extends Controller
             'email_Etudiant' => 'required|email',
             'origine_Etudiant' => 'max:30',
             'sexe_Etudiant' => 'max:10',
-            'photo_Etudiant' => => 'max:50',
+            'photo_Etudiant' => 'max:50'
         ],
         [
             //personnalisation des messages
