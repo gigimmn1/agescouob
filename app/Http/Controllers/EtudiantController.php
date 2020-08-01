@@ -110,7 +110,6 @@ class EtudiantController extends Controller
     {
         //Mise ç jour de Etudiant
         $validatedData = $request->validate([
-            'num_Etudiant' => 'required|unique|max:15',
             'nom_Etudiant' => 'required|max:50',
             'prenom_Etudiant' => 'required|max:50',
             'date_naiss_Etudiant' => 'date(format(dd/mm/yyyy))',
