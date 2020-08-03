@@ -14,9 +14,15 @@ class CreateNotesTable extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
-            $table->id();
-            $table->string('libelle_note');
+            $table->id('id_Note');
+            $table->string('libelle_Note');
+            $table->float('valeur_Note', 4, 2);
             $table->timestamps();
+
+            //Clés étrangères
+            //$table->foreignId('id_Evaluation')->constrained('evaluations');
+            //$table->foreignId('id_Inscription')->constrained('inscriptions');
+
         });
     }
 
