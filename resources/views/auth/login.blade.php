@@ -1,6 +1,4 @@
 @include('layouts.head')
-
-
 <body class="bg-gradient-success">
 
   <div class="container">
@@ -26,7 +24,7 @@
                       <input type="email" class="form-control @error('email') is-invalid @enderror form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="saisir votre mail..." name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         @error('email')
                             <span class="invalid-feedback" role="alert">
-                               <strong>{{ $message }}</strong>
+                             <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>

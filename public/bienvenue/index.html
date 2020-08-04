@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UOB &mdash;Université Omar Bongo</title>
+    <title>UOB &mdash; Website by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link href="{{ asset('bienvenue/fonts/icomoon/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link href="{{ asset('bienvenue/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/css/jquery-ui.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/css/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/css/owl.theme.default.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/css/owl.theme.default.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/css/jquery.fancybox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/css/bootstrap-datepicker.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/fonts/flaticon/font/flaticon.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/css/aos.css') }}" rel="stylesheet">
-    <link href="{{ asset('bienvenue/css/style.css') }}" rel="stylesheet">
-  
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/style.css">
     
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -46,28 +49,22 @@
           <div class="mx-auto text-center">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-              @if (Route::has('login'))
-              @auth
-                <li><a  href="{{ url('/home') }}" class="nav-link">Home</a></li>
-                @else
-                <li><a href="{{ route('login') }}" class="nav-link">s'identifier</a></li>
-                @if (Route::has('register'))
-                <li><a href="{{ route('register') }}" class="nav-link">S'inscrire</a></li>
-                @endif
-             @endauth
-             @endif
+                <li><a href="#home-section" class="nav-link">Home</a></li>
+                <li><a href="#courses-section" class="nav-link">Courses</a></li>
+                <li><a href="#programs-section" class="nav-link">Programs</a></li>
+                <li><a href="#teachers-section" class="nav-link">Teachers</a></li>
               </ul>
             </nav>
           </div>
 
           <div class="ml-auto w-25">
-                <nav class="site-navigation position-relative text-right" role="navigation">
-                    <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0    p-0">
-                        <li class="cta"><a href="#contact-section" class="nav-link"><span>Documentation</span></a></li>
-                    </ul>
-                </nav>
-                  <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
-         </div>
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
+                <li class="cta"><a href="#contact-section" class="nav-link"><span>Documentation</span></a></li>
+              </ul>
+            </nav>
+            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
+          </div>
         </div>
       </div>
       
