@@ -14,16 +14,17 @@ class CreateEvaluationsTable extends Migration
     public function up()
     {
         Schema::create('evaluations', function (Blueprint $table) {
-            $table->id('id_Evaluation');
-            $table->string('libelle_Evaluation');
+            $table->bigIncrements('id_Evaluation');
+            $table->string('libelle_Evaluation', 50);
             $table->integer('ordre_Evaluation');
-            $table->string('type_Evaluation');
-            $table->date('date_Evaluation');
+            $table->char('type_Evaluation', 20);
+            $table->datetime('date_Evaluation');
             $table->timestamps();
 
 
             //Clés étrangères
-            //$table->foreignId('id_Enseignement')->constrained('enseignements');
+            //$table->char('id_Enseignement',10);
+            //$table->foreign('id_Enseignement')->references('id_Enseignement')->on('enseignements')->ondelete('cascade');
 
         }); 
     }

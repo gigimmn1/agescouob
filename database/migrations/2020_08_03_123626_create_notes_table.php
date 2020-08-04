@@ -14,14 +14,17 @@ class CreateNotesTable extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
-            $table->id('id_Note');
-            $table->string('libelle_Note');
+            $table->bigIncrements('id_Note');
+            $table->string('libelle_Note', 50);
             $table->float('valeur_Note', 4, 2);
             $table->timestamps();
 
             //Clés étrangères
-            //$table->foreignId('id_Evaluation')->constrained('evaluations');
-            //$table->foreignId('id_Inscription')->constrained('inscriptions');
+            $table->unsignedBigInteger('id_Evaluation');
+            $table->foreign('id_Evaluation')->references('id_Evaluation')->on('evaluations')->ondelete('cascade');
+
+            $table->unsignedBigInteger('id_Inscription');
+            $table->foreign('id_Inscription')->references('id_Inscription')->on('inscriptions')->ondelete('cascade');
 
         });
     }

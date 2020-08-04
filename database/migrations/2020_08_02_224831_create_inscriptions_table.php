@@ -14,17 +14,27 @@ class CreateInscriptionsTable extends Migration
     public function up()
     {
         Schema::create('inscriptions', function (Blueprint $table) {
-            $table->id('id_Inscription');
-            $table->string('statut_Inscription');
-            $table->string('promotion_Inscription');
-            $table->integer('nbre_unite_a_valider');
+            $table->bigIncrements('id_Inscription');
+            $table->char('statut_Inscription', 25);
+            $table->char('promotion_Inscription', 10);
+            $table->integer('nbre_Unite_A_Valider');
             $table->timestamps();
 
+
+
             //Clés étrangères
-            //$table->foreignId('num_Etudiant')->constrained('etudiants');
-            //$table->foreignId('id_cycle')->constrained('cycles');
-            //$table->foreignId('id_tarif')->constrained('tarifs');
-            //$table->foreignId('id_parcours')->constrained('parcours');
+            $table->char('num_Etudiant',15);
+            $table->foreign('num_Etudiant')->references('num_Etudiant')->on('etudiants')->ondelete('cascade');
+
+            //$table->char('id_Cycle', 10);
+            //$table->foreign('id_Cycle')->references('id_Cycle')->on('cycles')->ondelete('cascade');
+
+            //$table->char('id_Tarif', 5);
+            //$table->foreign('id_Tarif')->references('id_Tarif')->on('tarifs')->ondelete('cascade');
+
+            //$table->char('id_Parcours', 10);
+            //$table->foreign('id_Parcours')->references('id_Parcours')->on('parcours')->ondelete('cascade');
+
 
         });
     }
