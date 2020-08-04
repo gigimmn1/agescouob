@@ -56,7 +56,7 @@ class EtudiantController extends Controller
             'email_Etudiant' => 'required|email',
             'origine_Etudiant' => 'max:30',
             'sexe_Etudiant' => 'max:10',
-            'photo_Etudiant' => => 'max:50',
+            'photo_Etudiant' => 'max:50'
         ],
         [
             //personnalisation des messages
@@ -110,7 +110,6 @@ class EtudiantController extends Controller
     {
         //Mise ç jour de Etudiant
         $validatedData = $request->validate([
-            'num_Etudiant' => 'required|unique|max:15',
             'nom_Etudiant' => 'required|max:50',
             'prenom_Etudiant' => 'required|max:50',
             'date_naiss_Etudiant' => 'date(format(dd/mm/yyyy))',
