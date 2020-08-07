@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Enseignant extends Migration
+class CreateEnseignantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class Enseignant extends Migration
      */
     public function up()
     {
-        Schema::create('Enseignants', function(Blueprint $table) {
-            $table->char('matricule_Enseignant',15);
+        Schema::create('enseignants', function(Blueprint $table) {
+            $table->char('matricule_Enseignant',15)->unique();
             $table->string('nom_Enseignant', 30);
             $table->string('prenom_Enseignant',30);
             $table->char('telephone_Enseignant',10);
@@ -28,10 +28,10 @@ class Enseignant extends Migration
             //Clés étrangères
 
             //$table->char('id_Grade',10);
-            //$table->foreign('id_Grade')->references('id_Grade') ->on('Grades') ->onDelete('cascade');
+            //$table->foreign('id_Grade')->references('id_Grade') ->on('grades') ->onDelete('cascade');
 
-            //$table->increments('id_Utilisateur');
-            //$table->foreign('id_Utilisateur')->references('id_Utilisateur') ->on('Utilisateurs') ->onDelete('cascade');
+            //$table->bigIncrements('id_Utilisateur');
+            //$table->foreign('id_Utilisateur')->references('id_Utilisateur') ->on('utilisateurs') ->onDelete('cascade');
 
 
         });
@@ -44,6 +44,6 @@ class Enseignant extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('Enseignants');
+        Schema::dropIfExists('enseignants');
     }
 }
