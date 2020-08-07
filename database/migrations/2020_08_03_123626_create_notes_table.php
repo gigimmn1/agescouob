@@ -17,6 +17,7 @@ class CreateNotesTable extends Migration
             $table->bigIncrements('id_Note');
             $table->string('libelle_Note', 50);
             $table->float('valeur_Note', 4, 2);
+            $table->integer('absence_Note');
             $table->timestamps();
 
             //Clés étrangères

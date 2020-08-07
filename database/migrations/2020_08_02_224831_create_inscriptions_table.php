@@ -18,6 +18,7 @@ class CreateInscriptionsTable extends Migration
             $table->char('statut_Inscription', 25);
             $table->char('promotion_Inscription', 10);
             $table->integer('nbre_Unite_A_Valider');
+            $table->char('etat_Inscription', 10);
             $table->timestamps();
 
 
