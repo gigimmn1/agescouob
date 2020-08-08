@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVacationTable extends Migration
+class CreateVacationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,8 +20,8 @@ class CreateVacationTable extends Migration
 
             //clés étrangères
 
-            $table->char('id_Cours',10);
-            $table->foreign('id_Cours')->references('id_Cours')->on('Cours') ->onDelete('cascade');
+           // $table->char('id_Cours',10);
+            //$table->foreign('id_Cours')->references('id_Cours')->on('Cours')->onDelete('cascade');
         });
     }
 
@@ -35,4 +35,3 @@ class CreateVacationTable extends Migration
         Schema::dropIfExists('vacations');
     }
 }
-

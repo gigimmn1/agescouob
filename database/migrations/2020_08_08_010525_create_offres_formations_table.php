@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOffreFormationTable extends Migration
+class CreateOffresFormationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,6 +16,10 @@ class CreateOffreFormationTable extends Migration
         Schema::create('offres_formations', function (Blueprint $table) {
             $table->char('id_Offre_Formation',10)->unique();
             $table->string('nom_Offre_Formation',50);
+            $table->timestamps();
+
+            //Clé primaire
+            $table->primary('id_Offre_Formation');           
         });
     }
 

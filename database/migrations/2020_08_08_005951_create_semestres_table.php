@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSemestreTable extends Migration
+class CreateSemestresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,10 @@ class CreateSemestreTable extends Migration
             $table->char('id_Semestre',3)->unique();
             $table->char('libelle_Semestre',15);
             $table->integer('ordre_Semestre');
+            $table->timestamps();
 
+            //Clé primaire
+            $table->primary('id_Semestre');
         });
     }
 
