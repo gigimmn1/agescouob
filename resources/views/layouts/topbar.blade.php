@@ -9,9 +9,7 @@
                 </form>
             </div>
             <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
-                </li>
+                
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
@@ -108,13 +106,26 @@
                     </ul>
                 </li>
 
+                <li class="dropdown profile-element">
 
-                <li>
-                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                      <i class="fa fa-sign-out"></i>se deconnecter
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ Auth::user()->name }}</strong>
+                             <b class="caret"></b> </span></span> 
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li>
+                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out"></i>se deconnecter
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
+                            </li>
+                        </ul>
                 </li>
+                
                 <li>
                     <a class="right-sidebar-toggle">
                         <i class="fa fa-tasks"></i>
