@@ -51,7 +51,7 @@ class ParentController extends Controller
             ‘required’ => ‘Ce champ est obligatoire’
         ]);
 
-        $show = Etudiant::create($validatedData);
+        $show = Parent::create($validatedData);
    
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -69,6 +69,9 @@ class ParentController extends Controller
     public function show($id)
     {
         //
+         return view('show', [
+            'parents' => $id
+        ]);
     }
 
     /**
@@ -103,7 +106,7 @@ class ParentController extends Controller
             'prenom_parent' => 'required|max:30',
             'utilisateur_id_utilisateur' => 'required',
         ]);
-        Etudiant::whereId($id)->update($validatedData);
+        Parent::whereId($id)->update($validatedData);
 
         return redirect('/parents')->with('success', 'Parent mis à jour avec succès');
     }
