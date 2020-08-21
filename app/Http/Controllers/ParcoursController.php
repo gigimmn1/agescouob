@@ -14,6 +14,9 @@ class ParcoursController extends Controller
     public function index()
     {
         //
+        $vparcours = Parcours::all();
+
+        return view('index', compact('vparcours'));
     }
 
     /**
@@ -24,6 +27,7 @@ class ParcoursController extends Controller
     public function create()
     {
         //
+         return view('create');
     }
 
     /**
@@ -35,6 +39,26 @@ class ParcoursController extends Controller
     public function store(Request $request)
     {
         //
+        //Validation des informations
+        $validatedData = $request->validate([
+            'id_Parcours' => 'required|unique|max:10',  
+            'libelle_Parcours' => 'max:100',
+            'id_Classe' => 'max:15'
+        ],
+        [
+            //personnalisation des messages
+            ‘required’ => ‘Ce champ est obligatoire’,
+            ‘alpha’ => ‘Saisir uniquement des lettres’,
+            ‘email’ => ‘Format email incorrect’
+        ]);
+
+        $show = Parcours::create($validatedData);
+   
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        return redirect('/parcours')->with('success', 'Parcours enregistré avec succès');
     }
 
     /**
@@ -46,6 +70,9 @@ class ParcoursController extends Controller
     public function show($id)
     {
         //
+        return view('show', [
+            'parcours' => $id
+        ]);
     }
 
     /**
@@ -57,6 +84,9 @@ class ParcoursController extends Controller
     public function edit($id)
     {
         //
+        $vparcours = Parcours::findOrFail($id);
+
+        return view('edit', compact('vparcours'));
     }
 
     /**
@@ -69,6 +99,14 @@ class ParcoursController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //Mise ç jour de Etudiant
+        $validatedData = $request->validate([
+            'libelle_Parcours' => 'max:100',
+            'id_Classe' => 'max:15'
+        ]);
+        Parcours::whereId($id)->update($validatedData);
+
+        return redirect('/parcours')->with('success', 'Parcours mis à jour avec succès');
     }
 
     /**
@@ -80,5 +118,10 @@ class ParcoursController extends Controller
     public function destroy($id)
     {
         //
+        //Suppression de l'étudiant
+        $vparcours = Parcours::findOrFail($id);
+        $vparcours->delete();
+
+        return redirect('/parcours')->with('success', 'Parcours supprimé avec succès');
     }
 }

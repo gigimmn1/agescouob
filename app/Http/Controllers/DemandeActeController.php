@@ -14,6 +14,9 @@ class DemandeActeController extends Controller
     public function index()
     {
         //
+        $vdemandeacte = Demande_Acte::all();
+
+        return view('index', compact('vdemandeacte'));
     }
 
     /**
@@ -24,6 +27,7 @@ class DemandeActeController extends Controller
     public function create()
     {
         //
+        return view('create');
     }
 
     /**
@@ -35,6 +39,31 @@ class DemandeActeController extends Controller
     public function store(Request $request)
     {
         //
+        //Validation des informations
+        $validatedData = $request->validate([
+            //'id_Demande_Acte')->unique();
+            'statut_Demande_Acte' => 'max:30',
+            'date_Demande_Acte' => 'date(format(dd/mm/yyyy))',
+            'ressource_Demande_Acte' => 'max:50',
+            'observations_Demande_Acte' => 'max:255',
+            'type_Demande_Acte' => 'max:30',
+            'date_Retrait_Demande_Acte' => 'date(format(dd/mm/yyyy))',
+            'id_Inscription' => 'required|numeric'
+        ],
+        [
+            //personnalisation des messages
+            ‘required’ => ‘Ce champ est obligatoire’,
+            ‘alpha’ => ‘Saisir uniquement des lettres’,
+            ‘email’ => ‘Format email incorrect’
+        ]);
+
+        $show = Demande_Acte::create($validatedData);
+   
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        return redirect('/demande_actes')->with('success', 'Demande acte administratif enregistré avec succès');
     }
 
     /**
@@ -46,6 +75,9 @@ class DemandeActeController extends Controller
     public function show($id)
     {
         //
+        return view('show', [
+            'demande_actes' => $id
+        ]);
     }
 
     /**
@@ -57,6 +89,9 @@ class DemandeActeController extends Controller
     public function edit($id)
     {
         //
+        $vdemandeacte = Demande_Acte::findOrFail($id);
+
+        return view('edit', compact('vdemandeacte'));
     }
 
     /**
@@ -69,6 +104,19 @@ class DemandeActeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //Mise ç jour de Etudiant
+        $validatedData = $request->validate([
+            'statut_Demande_Acte' => 'max:30',
+            'date_Demande_Acte' => 'date(format(dd/mm/yyyy))',
+            'ressource_Demande_Acte' => 'max:50',
+            'observations_Demande_Acte' => 'max:255',
+            'type_Demande_Acte' => 'max:30',
+            'date_Retrait_Demande_Acte' => 'date(format(dd/mm/yyyy))',
+            'id_Inscription' => 'required|numeric'
+        ]);
+        Demande_Acte::whereId($id)->update($validatedData);
+
+        return redirect('/demande_actes')->with('success', 'Demande acte administratif mis à jour avec succès');
     }
 
     /**
@@ -80,5 +128,10 @@ class DemandeActeController extends Controller
     public function destroy($id)
     {
         //
+        //Suppression de l'étudiant
+        $vdemandeacte = Demande_Acte::findOrFail($id);
+        $vdemandeacte->delete();
+
+        return redirect('/demande_actes')->with('success', 'Demande acte administratif supprimé avec succès');
     }
 }
