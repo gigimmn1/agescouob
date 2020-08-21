@@ -32,4 +32,6 @@ Route::resource('notes', 'NoteController');
 
 Route::resource('cycles', 'CycleController');
 
+Route::resource('parents', 'ParentController');
+
 

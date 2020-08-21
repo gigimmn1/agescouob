@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Parcours extends Model
 {
     //
+
     /**
      * Indicates if the IDs are auto-incrementing.
      *
@@ -19,7 +20,7 @@ class Parcours extends Model
      *
      * @var char
      */
-    protected $primaryKey = 'id_Parcours';
+    //protected $primaryKey = 'id_Parcours';
 
     /**
      * The attributes that are mass assignable.
@@ -30,4 +31,5 @@ class Parcours extends Model
     protected $fillable = ['id_Parcours','libelle_Parcours','id_Classe'];
 
     protected $table = ['parcours'];
+
 }

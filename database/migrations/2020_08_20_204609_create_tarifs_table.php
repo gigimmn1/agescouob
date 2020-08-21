@@ -16,7 +16,7 @@ class CreateTarifsTable extends Migration
         Schema::create('tarifs', function (Blueprint $table) {
             $table->CHAR('id_Tarif',5)->unique();
             $table->NUMERIC('somme_Tarif');
-            $table->string('annotations_Tarif'),
+            $table->string('annotations_Tarif');
             $table->timestamps();
 
             //Clé primaire
