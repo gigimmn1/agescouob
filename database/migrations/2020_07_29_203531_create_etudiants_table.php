@@ -35,7 +35,7 @@ class CreateEtudiantsTable extends Migration
         $table->primary('num_Etudiant');
 
         //Clés étrangères
-        //$table->foreign('num_parent')->references('num_parent')->on('parents')->ondelete('cascade');
+        $table->foreign('num_parent')->references('num_parent')->on('parents')->ondelete('cascade');
         });
 
         

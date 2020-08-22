@@ -33,4 +33,6 @@ Route::get('/notes', 'NoteController@index')->name('notes');
 
 Route::resource('cycles', 'CycleController');
 
+Route::resource('parents', 'ParentController');
+
 
