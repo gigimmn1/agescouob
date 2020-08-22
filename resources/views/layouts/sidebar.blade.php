@@ -17,21 +17,12 @@
                    
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
+                    <a href="{{ route('notes')}}"><i class="fa fa-file"></i> <span class="nav-label">Notes</span></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="">Flot Charts</a></li>
-                        <li><a href="">Morris.js Charts</a></li>
-                        <li><a href="">Rickshaw Charts</a></li>
-                        <li><a href="">Chart.js</a></li>
-                        <li><a href="">Chartist</a></li>
-                        <li><a href="">c3 charts</a></li>
-                        <li><a href="">Peity Charts</a></li>
-                        <li><a href="">Sparkline Charts</a></li>
-                    </ul>
+                    <a href=""><i class="fa fa-tasks"></i> <span class="nav-label">Evaluations</span></a>
                 </li>
+               
                 
 
             </ul>
