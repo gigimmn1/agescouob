@@ -14,16 +14,12 @@ class CreateDepartementsTable extends Migration
     public function up()
     {
         Schema::create('departements', function (Blueprint $table) {
-            $table->CHAR('id_departement',10)->unique();
-            $table->string('nom_departement',100);
-            $table->CHAR('id_faculte',5);
+            $table->CHAR('id_Departement',10)->unique();
+            $table->string('nom_Departement',100);
             $table->timestamps();
 
             //Clé primaire
-            $table->primary('id_departement');
-
-            //clé étrangère sur Facultes
-            $table->foreign('id_faculte')->references('id_faculte')->on('facultes')->ondelete('cascade');
+            $table->primary('id_Departement');
         });
     }
 

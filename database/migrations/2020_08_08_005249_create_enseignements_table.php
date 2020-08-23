@@ -26,18 +26,6 @@ class CreateEnseignementsTable extends Migration
 
             //Clé primaire
             $table->primary('id_Enseignement');
-
-            //Clés étrangères
-            
-            //$table->char('id_Unite_Enseignement',10);
-            //$table->foreign('id_Unite_Enseignement')->references('id_Unite_Enseignement')->on('Unites_Enseignement')->onDelete('cascade');
-           
-            //$table->char('id_Semestre',3);
-            //$table->foreign('id_Semestre')->references('id_Semestre')->on('semestres')->onDelete('cascade');
-
-            //$table->char('id_Classe',15);
-            //$table->foreign('id_Classe')->references('id_Classe')->on('classes')->onDelete('cascade');
-            
         });
     }
 

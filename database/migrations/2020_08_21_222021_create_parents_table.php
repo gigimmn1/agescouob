@@ -19,7 +19,6 @@ class CreateParentsTable extends Migration
             $table->char('profession_Parent',50);
             $table->char('tel_Parent',10);
             $table->char('prenom_Parent',30);
-            $table->integer('utilisateur_id_utilisateur');
         });
     }
 

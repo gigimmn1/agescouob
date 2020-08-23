@@ -19,14 +19,8 @@ class CreateActeAdministratifsTable extends Migration
             $table->CHAR('reference_Acte_Administratif',20);
             $table->string('signataire_Acte_Administratif',50);
             $table->CHAR('type_Acte_Administratif',15);
-            $table->integer('id_Demande_Acte');
             $table->timestamps();
 
-            //Clé primaire
-            $table->primary('id_Acte_Administratif');
-
-            //Clé étrangère
-            $table->foreign('id_Demande_Acte')->references('id_Demande_Acte')->on('demande_actes')->ondelete('cascade');
         });
     }
 

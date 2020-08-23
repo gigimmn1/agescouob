@@ -19,7 +19,8 @@ class CreateOffresFormationsTable extends Migration
             $table->timestamps();
 
             //Clé primaire
-            $table->primary('id_Offre_Formation');           
+            $table->primary('id_Offre_Formation'); 
+                      
         });
     }
 

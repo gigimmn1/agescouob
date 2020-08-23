@@ -25,17 +25,6 @@ class CreateCoursTable extends Migration
             //Clé primaire
             $table->primary('id_Cours');
 
-            //Clés étrangères
-
-            //$table->char('id_Salle',5);
-            //$table->foreign('id_Salle')->references('id_Salle')->on('salles')->onDelete('cascade');
-
-            //$table->char('matricule_Enseignant',15);
-           // $table->foreign('matricule_Enseignant')->references('matricule_Enseignant')->on('enseignants')->onDelete('cascade');
-            
-            //$table->char('id_Enseignement',10);
-           // $table->foreign('id_Enseignement')->references('id_Enseignement')->on('enseignements')->onDelete('cascade');
-          
         });
     }
 

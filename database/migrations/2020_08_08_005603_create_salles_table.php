@@ -20,12 +20,6 @@ class CreateSallesTable extends Migration
 
             //Clé primaire
             $table->primary('id_Salle');
-            
-            //Clé étrangère
-
-            //$table->char('id_Batiment',5);
-            //$table->foreign('id_Batiment')->references('id_Batiment')->on('batiment')->onDelete('cascade');
-            
         });
     }
 

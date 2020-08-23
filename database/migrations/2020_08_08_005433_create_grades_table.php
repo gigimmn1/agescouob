@@ -22,7 +22,6 @@ class CreateGradesTable extends Migration
 
             //Clé primaire
             $table->primary('id_Grade');
-            
         });
     }
 

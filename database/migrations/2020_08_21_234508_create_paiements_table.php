@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBatimentsTable extends Migration
+class CreatePaiementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateBatimentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('batiments', function (Blueprint $table) {
-            
-            $table->char('id_Batiment',5)->unique();
-            $table->string('nom_Batiment',50);
-            $table->string('localisation_Batiment',50);
+        Schema::create('paiements', function (Blueprint $table) {
+            $table->bigIncrements('id_Paiement');//cle primaire
+            $table->float('montant_Paiement', 15);
+            $table->datetime('date_Paiement');
             $table->timestamps();
-            //Clé primaire
-            $table->primary('id_Batiment');
         });
     }
 
@@ -31,6 +28,6 @@ class CreateBatimentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('batiments');
+        Schema::dropIfExists('paiements');
     }
 }

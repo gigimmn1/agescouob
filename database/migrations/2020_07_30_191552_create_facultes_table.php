@@ -14,12 +14,12 @@ class CreateFacultesTable extends Migration
     public function up()
     {
         Schema::create('facultes', function (Blueprint $table) {
-            $table->CHAR('id_faculte',5)->unique();
-            $table->CHAR('nom_faculte',50);
+            $table->CHAR('id_Faculte',5)->unique();
+            $table->CHAR('nom_Faculte',50);
             $table->timestamps();
 
             //Clé primaire
-            $table->primary('id_faculte');     
+            $table->primary('id_Faculte');     
         });
     }
 

@@ -16,14 +16,10 @@ class CreateParcoursTable extends Migration
         Schema::create('parcours', function (Blueprint $table) {
             $table->CHAR('id_Parcours',10)->unique();  
             $table->string('libelle_Parcours',100);
-            $table->CHAR('id_Classe',15);
             $table->timestamps();
 
             //Clé primaire
             $table->primary('id_Parcours');
-
-            //clé secondaire
-            $table->foreign('id_Classe')->references('id_Classe')->on('classes')->ondelete('cascade');
         });
     }
 

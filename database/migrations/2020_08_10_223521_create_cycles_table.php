@@ -20,6 +20,7 @@ class CreateCyclesTable extends Migration
 
             //Clé primaire
             $table->primary('id_Cycle');
+            
         });
     }
 

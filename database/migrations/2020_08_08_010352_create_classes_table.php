@@ -20,14 +20,6 @@ class CreateClassesTable extends Migration
 
             //Clé primaire
             $table->primary('id_Classe');
-
-            //Clé étrangères
-
-           // $table->char('id_departement',10)->unique();
-           // $table->foreign('id_Departement')->references('id_Departement')->on('departements')->onDelete('cascade');
-
-          //  $table->char('id_niveau',2)->unique();
-           // $table->foreign('id_niveau')->references('id_niveau')->on('niveaux')->onDelete('cascade');
         });
     }
 

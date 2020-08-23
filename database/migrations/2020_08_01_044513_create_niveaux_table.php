@@ -14,13 +14,13 @@ class CreateNiveauxTable extends Migration
     public function up()
     {
         Schema::create('niveaux', function (Blueprint $table) {
-            $table->CHAR('id_niveau',2)->unique();
-            $table->CHAR('libelle_niveau',15);
-            $table->INTEGER('ordre_niveau');
+            $table->CHAR('id_Niveau',2)->unique();
+            $table->CHAR('libelle_Niveau',15);
+            $table->INTEGER('ordre_Niveau');
             $table->timestamps();
 
             //Clé primaire
-            $table->primary('id_niveau');
+            $table->primary('id_Niveau');
         });
     }
 

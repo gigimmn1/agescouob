@@ -27,15 +27,6 @@ class CreateEnseignantsTable extends Migration
 
             //Clé primaire
             $table->primary('matricule_Enseignant');
-
-            //Clés étrangères
-
-            //$table->char('id_Grade',10);
-            //$table->foreign('id_Grade')->references('id_Grade')->on('grades')->onDelete('cascade');
-
-            //$table->autoIncrements('id_Utilisateur');
-            //$table->foreign('id_Utilisateur')->references('id_Utilisateur')->on('utilisateurs')->onDelete('cascade');
-            
         });
     }
 

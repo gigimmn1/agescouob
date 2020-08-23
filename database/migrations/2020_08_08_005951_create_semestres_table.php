@@ -21,6 +21,7 @@ class CreateSemestresTable extends Migration
 
             //Clé primaire
             $table->primary('id_Semestre');
+            
         });
     }
 
