@@ -14,7 +14,8 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        //
+        $inscriptions = Inscription::all();
+        return view('inscriptions.index', compact('inscriptions'));
     }
 
     /**
@@ -24,7 +25,7 @@ class InscriptionController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,7 @@ class InscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,9 +47,8 @@ class InscriptionController extends Controller
      */
     public function show(Inscription $inscription)
     {
-        //
+      
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -69,7 +69,7 @@ class InscriptionController extends Controller
      */
     public function update(Request $request, Inscription $inscription)
     {
-        //
+        
     }
 
     /**
@@ -78,8 +78,11 @@ class InscriptionController extends Controller
      * @param  \App\Inscription  $inscription
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inscription $inscription)
+    public function destroy(Inscription $id)
     {
-        //
+        $inscription = Inscription::find($id);
+        $inscription->delete();
+
+        return redirect('/inscriptions')->with('success', 'Inscription supprimé !');
     }
 }

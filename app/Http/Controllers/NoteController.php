@@ -14,7 +14,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = Contact::all();
+        $notes = Note::all();
         return view('notes.index', compact('notes'));
     }
 

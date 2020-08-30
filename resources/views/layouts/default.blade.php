@@ -1,46 +1,32 @@
-@include('layouts.head')
+<!DOCTYPE html>
+<html lang="fr">
 
-<body id="page-top">
+  <head>
+    @include('layouts.head')
+  </head>
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-    @include('layouts.sidebar')
-    
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
+  <body>
+    <div id="wrapper">
+      @include('layouts.sidebar')
+      <div id="page-wrapper" class="gray-bg">
         @include('layouts.topbar')
-        @yield('content')
-      </div>
-      <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; agesco-uob 2020</span>
-          </div>
+        <div class="wrapper wrapper-content">
+          @yield('content')
         </div>
-      </footer>
-      <!-- End of Footer -->
 
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2015
+            </div>
+        </div>
+
+      </div>
+      @include('layouts.right-sidebar')
+      @include('layouts.scripts')
     </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  @include('layouts.modal')
-  @include('layouts.scripts')
-
-
-</body>
-
+  </body>
 </html>

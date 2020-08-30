@@ -29,3 +29,10 @@ Route::resource('departements','DepartementController');
 Route::resource('niveaux','NiveauController');
 
 Route::resource('notes', 'NoteController');
+Route::get('/notes', 'NoteController@index')->name('notes');
+
+Route::resource('cycles', 'CycleController');
+
+Route::resource('parents', 'ParentController');
+
+
