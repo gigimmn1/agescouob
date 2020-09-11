@@ -49,12 +49,12 @@ class DemandeActeController extends Controller
             'type_Demande_Acte' => 'max:30',
             'date_Retrait_Demande_Acte' => 'date(format(dd/mm/yyyy))',
             'id_Inscription' => 'required|numeric'
-        ],
+        /*],
         [
             //personnalisation des messages
             ‘required’ => ‘Ce champ est obligatoire’,
             ‘alpha’ => ‘Saisir uniquement des lettres’,
-            ‘email’ => ‘Format email incorrect’
+            ‘email’ => ‘Format email incorrect’*/
         ]);
 
         $show = Demande_Acte::create($validatedData);

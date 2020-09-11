@@ -42,10 +42,10 @@ class CycleController extends Controller
         $validatedData = $request->validate([
             'id_Cycle' => 'required|unique|max:10',
             'libelle_Cycle' => 'max:15',
-        ],
-        [
+         /*],
+       [
             //personnalisation des messages
-            ‘required’ => ‘Ce champ est obligatoire’,
+            ‘required’ => ‘Ce champ est obligatoire’,*/
         ]);
 
         $show = Cycle::create($validatedData);

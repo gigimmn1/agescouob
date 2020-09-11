@@ -44,10 +44,10 @@ class DepartementController extends Controller
             'id_departement' => 'required|unique|max:10',
             'nom_departement' => 'max:100',
             'id_faculte' => 'required|max:5',
-        ],
+        /*],
         [
             //personnalisation des messages
-            ‘required’ => ‘Ce champ est obligatoire’,
+            ‘required’ => ‘Ce champ est obligatoire’,*/
         ]);
 
         $show = Departement::create($validatedData);

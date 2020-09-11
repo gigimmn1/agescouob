@@ -47,12 +47,12 @@ class ActeAdministratifController extends Controller
             'signataire_Acte_Administratif' => 'max:50',
             'type_Acte_Administratif' => 'max:15',
             'id_Demande_Acte' => 'numeric'
-        ],
+        /*],
         [
             //personnalisation des messages
             ‘required’ => ‘Ce champ est obligatoire’,
             ‘alpha’ => ‘Saisir uniquement des lettres’,
-            ‘email’ => ‘Format email incorrect’
+            ‘email’ => ‘Format email incorrect’*/
         ]);
 
         $show = Acte_Administratif::create($validatedData);

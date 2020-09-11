@@ -47,12 +47,12 @@ class DocumentJointController extends Controller
             'type_Document_Joint' => 'max:30',
             'fichier_Document_Joint' => 'max:100',
             'id_Demande_Acte' => 'required|numeric'
-        ],
+        /*],
         [
             //personnalisation des messages
             ‘required’ => ‘Ce champ est obligatoire’,
             ‘alpha’ => ‘Saisir uniquement des lettres’,
-            ‘email’ => ‘Format email incorrect’
+            ‘email’ => ‘Format email incorrect’*/
         ]);
 
         $show = Document_Joint::create($validatedData);

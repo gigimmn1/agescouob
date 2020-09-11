@@ -10,8 +10,6 @@
   @endif
 </div>
 
-
-       
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
                     <h2>Data Tables</h2>
@@ -72,22 +70,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($notes as $note)
-                                        <tr class="gradeA">
-                                            <td>{{$note->id}}</td>
-                                            <td>{{$note->libelle_note}}</td>
+                                        @foreach($users as $etudiant)
+                                        <tr >
+                                            <td>{{$etudiant->name}}</td>
+                                            <td>{{$etudiant->email}}</td>
                                             <td>
-                                                <a href="{{ route('notes.show',$note->id)}}" class="btn btn-info btn-circle btn-sm">
+                                                <a href="{{ route('notes.show',$etudiant->id)}}" class="btn btn-info btn-circle btn-sm">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('notes.edit',$note->id)}}" class="btn btn-warning btn-circle btn-sm">
+                                                <a href="{{ route('notes.edit',$etudiant->id)}}" class="btn btn-warning btn-circle btn-sm">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <form action="{{ route('notes.destroy', $note->id)}}" method="post">
+                                                <form action="{{ route('notes.destroy', $etudiant->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-circle btn-sm" type="submit">
@@ -98,23 +96,6 @@
                                         </tr>
                                   
                                         @endforeach
-                                        <tr class="gradeX">
-                                            <td>Trident</td>
-                                            <td>Internet
-                                                Explorer 4.0
-                                            </td>
-                                            <td>Win 95+</td>
-                                            
-                                        </tr>
-                                        <tr class="gradeC">
-                                            <td>Trident</td>
-                                            <td>Internet
-                                                Explorer 5.0
-                                            </td>
-                                            <td>Win 95+</td>
-                                           
-                                        </tr>
-                                    
                                     </tbody>
                                     <tfoot>
                                         <tr>

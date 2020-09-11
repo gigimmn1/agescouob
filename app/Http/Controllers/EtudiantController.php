@@ -18,7 +18,7 @@ class EtudiantController extends Controller
         //
         $vetudiant = Etudiant::all();
 
-        return view('index', compact('vetudiant'));
+        return view('etudiants.index', compact('vetudiant'));
     }
 
     /**
@@ -57,12 +57,12 @@ class EtudiantController extends Controller
             'origine_Etudiant' => 'max:30',
             'sexe_Etudiant' => 'max:10',
             'photo_Etudiant' => 'max:50'
-        ],
+       /* ],
         [
             //personnalisation des messages
             ‘required’ => ‘Ce champ est obligatoire’,
             ‘alpha’ => ‘Saisir uniquement des lettres’,
-            ‘email’ => ‘Format email incorrect’
+            ‘email’ => ‘Format email incorrect’*/
         ]);
 
         $show = Etudiant::create($validatedData);
@@ -126,7 +126,7 @@ class EtudiantController extends Controller
             'email_Etudiant' => 'required|email',
             'origine_Etudiant' => 'max:30',
             'sexe_Etudiant' => 'max:10',
-            'photo_Etudiant' => => 'max:50',
+            'photo_Etudiant' => 'max:50',
         ]);
         Etudiant::whereId($id)->update($validatedData);
 

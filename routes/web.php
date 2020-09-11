@@ -18,21 +18,25 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    Route::resource('/users', 'UsersController');
+});
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('etudiants','EtudiantController');
+Route::resource('/etudiants','EtudiantController');
 
-Route::resource('facultes','FaculteController');
+Route::resource('/facultes','FaculteController');
 
-Route::resource('departements','DepartementController');
+Route::resource('/departements','DepartementController');
 
-Route::resource('niveaux','NiveauController');
+Route::resource('/niveaux','NiveauController');
 
-Route::resource('notes', 'NoteController');
-Route::get('/notes', 'NoteController@index')->name('notes');
+Route::resource('/notes', 'NoteController');
 
-Route::resource('cycles', 'CycleController');
+Route::resource('/cycles', 'CycleController');
 
-Route::resource('parents', 'ParentController');
+Route::resource('/parents', 'ParentController');
+
+
 
 

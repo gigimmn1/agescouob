@@ -44,10 +44,10 @@ class NiveauController extends Controller
             'id_niveau' => 'required|unique|max:2',
             'libelle_niveau' => 'max:15',
             'ordre_niveau' => 'numeric',
-        ],
+        /*],
         [
             //personnalisation des messages
-            ‘required’ => ‘Ce champ est obligatoire’,
+            ‘required’ => ‘Ce champ est obligatoire’,*/
         ]);
 
         $show = Niveau::create($validatedData);

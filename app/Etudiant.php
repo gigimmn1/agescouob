@@ -24,5 +24,5 @@ class Etudiant extends Model
         'photo_Etudiant'
     ];
 
-    protected $table = ['etudiants'] ;
+    protected $table = 'etudiants';
 }

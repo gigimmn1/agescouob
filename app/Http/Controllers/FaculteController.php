@@ -42,10 +42,10 @@ class FaculteController extends Controller
          $validatedData = $request->validate([
             'id_faculte' => 'required|unique|max:5',
             'nom_faculte' => 'max:50',
-        ],
+        /*],
         [
             //personnalisation des messages
-            ‘required’ => ‘Ce champ est obligatoire’,
+            ‘required’ => ‘Ce champ est obligatoire’,*/
         ]);
 
         $show = Faculte::create($validatedData);

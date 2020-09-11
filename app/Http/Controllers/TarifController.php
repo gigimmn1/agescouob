@@ -44,12 +44,12 @@ class TarifController extends Controller
             'id_Tarif' => 'required|unique|max:5',
             'somme_Tarif' => 'required|numeric',
             'annotations_Tarif' => 'max:255'            
-        ],
+        /*],
         [
             //personnalisation des messages
             ‘required’ => ‘Ce champ est obligatoire’,
             ‘alpha’ => ‘Saisir uniquement des lettres’,
-            ‘email’ => ‘Format email incorrect’
+            ‘email’ => ‘Format email incorrect’*/
         ]);
 
         $show = Tarif::create($validatedData);

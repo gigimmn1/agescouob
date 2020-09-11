@@ -44,12 +44,12 @@ class ParcoursController extends Controller
             'id_Parcours' => 'required|unique|max:10',  
             'libelle_Parcours' => 'max:100',
             'id_Classe' => 'max:15'
-        ],
+        /*],
         [
             //personnalisation des messages
             ‘required’ => ‘Ce champ est obligatoire’,
             ‘alpha’ => ‘Saisir uniquement des lettres’,
-            ‘email’ => ‘Format email incorrect’
+            ‘email’ => ‘Format email incorrect’*/
         ]);
 
         $show = Parcours::create($validatedData);

@@ -3,10 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Note;
+use App\User;
+use App\Etudiant;
 use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +27,8 @@ class NoteController extends Controller
     public function index()
     {
         $notes = Note::all();
-        return view('notes.index', compact('notes'));
+        $users = User::all();  
+        return view('notes.index')->with('notes', $notes)->with('users', $users);
     }
 
     /**

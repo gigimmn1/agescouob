@@ -14,7 +14,7 @@ class ParentController extends Controller
     public function index()
     {
         //
-        $vparent : Parent::all();
+        $vparent = Parent::all();
         return view('index', compact('vparent'));
     }
 
@@ -46,9 +46,9 @@ class ParentController extends Controller
             'prenom_parent' => 'required|max:30',
             'utilisateur_id_utilisateur' => 'required',
             
-        ],
+        /*],
         [
-            ‘required’ => ‘Ce champ est obligatoire’
+            ‘required’ => ‘Ce champ est obligatoire’*/
         ]);
 
         $show = Parent::create($validatedData);

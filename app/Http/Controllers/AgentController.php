@@ -47,12 +47,12 @@ class AgentController extends Controller
             'tel_Agent' => 'max:10',
             'fonction_Agent' => 'max:60',
             'id_Utilisateur' => 'required|numeric'
-        ],
+        /*],
         [
             //personnalisation des messages
             ‘required’ => ‘Ce champ est obligatoire’,
             ‘alpha’ => ‘Saisir uniquement des lettres’,
-            ‘email’ => ‘Format email incorrect’
+            ‘email’ => ‘Format email incorrect’*/
         ]);
 
         $show = Agent::create($validatedData);
