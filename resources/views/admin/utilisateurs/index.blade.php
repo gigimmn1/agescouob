@@ -38,15 +38,19 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Libelle</th>
+                                    <th>Nom_utilisateur</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
                                     <th colspan = 3>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($users as $user)
                                 <tr>
+                                    <td>{{$user->id}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
+                                    <td>{{$user->role}}</td>
                                     <td>
                                         <a href="{{ route('admin.users.show',$user->id)}}" class="btn btn-info btn-circle btn-sm">
                                             <i class="fa fa-eye"></i>
@@ -72,7 +76,9 @@
                             <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Libelle</th>
+                                    <th>Nom_utilisateur</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
                                     <th colspan = 3>Actions</th>
                                 </tr>
                             </tfoot>
