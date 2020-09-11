@@ -55,7 +55,7 @@ class NoteController extends Controller
         ]);
 
         $note = new Note([
-            'libelle_note' => $request->get('libelle_note')
+            'libelle_note' => $request->input('libelle_note')
         ]);
         $note->save();
         return redirect('/notes')->with('success', 'Note Enregistré !');
