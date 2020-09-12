@@ -31,9 +31,13 @@
                         <h5>Liste des utilisateurs</h5>
                     </div>
                     <div class="ibox-content">
-                        <div class="">
-                            <a href="" class="btn btn-primary">Créer un nouvel utilisateur</a>
-                        </div>
+                        <a data-toggle="modal" class="btn btn-primary" href="#modal-form-create">Créer un nouvel utilisateur</a>
+                        <!-- Appel du Formulaire modal -->
+                        @include('admin.utilisateurs.create')
+                        <!-- Fin Appel du Formulaire modal -->
+                    </div>
+                    <div class="ibox-content">
+                        
                         <table class="table table-striped table-bordered table-hover " id="editable" >
                             <thead>
                                 <tr>
@@ -50,24 +54,31 @@
                                     <td>{{$user->id}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->role}}</td>
                                     <td>
-                                        <a href="{{ route('admin.users.show',$user->id)}}" class="btn btn-info btn-circle btn-sm">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
+                                        {{ implode(', ', $user->roles()->pluck('nom')->toArray()) }}   
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.users.edit',$user->id)}}" class="btn btn-warning btn-circle btn-sm">
+                                        <div >
+                                            <a data-toggle="modal" class="btn btn-info btn-circle btn-sm" href="#modal-form-show{{$user->id}}">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <!-- Appel du Formulaire modal -->
+                                            @include('admin.utilisateurs.show')
+                                            <!-- Fin Appel du Formulaire modal -->
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.users.edit', $user)}}" class="btn btn-warning btn-circle btn-sm">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                     </td>
                                     <td>
-                                        <form action="{{ route('admin.users.destroy', $user->id)}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger btn-circle btn-sm" type="submit">
-                                            <i class="fa fa-trash-o"></i>
-                                        </button>
+                                        <form action="{{ route('admin.users.destroy', $user)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-circle btn-sm" type="submit">
+                                                <i class="fa fa-trash-o"></i>
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
@@ -88,6 +99,8 @@
             </div>
         </div>
     </div>
+
+
 @endsection
 
 

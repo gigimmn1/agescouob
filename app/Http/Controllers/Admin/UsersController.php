@@ -26,8 +26,9 @@ class UsersController extends Controller
      */
     public function index()
     {
+        $roles = Role::all();
         $users = User::all(); 
-        return view('admin.utilisateurs.index')->with('users', $users);
+        return view('admin.utilisateurs.index')->with('users', $users)->with('roles', $roles);
     }
 
     /**
@@ -37,7 +38,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        //voir dans les vues view/admin/utilisateurs/create
     }
 
     /**
@@ -48,7 +49,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+         ]);
+
+        User::create($request->all());
+
+        return redirect()->route('admin.users.index')->with('success', 'Utilisateur créé.');
     }
 
     /**
@@ -59,7 +69,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        //
+        //voir dans les vues view/admin/utilisateurs/show
     }
 
     /**
@@ -86,7 +96,15 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+         ]);
+
+        $user->update($request->all());
+        $user->roles()->sync($request->roles);
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -97,6 +115,8 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->roles()->detach();
+        $user->delete();
+        return redirect()->route('admin.users.index');
     }
 }
