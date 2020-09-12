@@ -14,10 +14,11 @@ class UsersTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        User::truncate();
+    {   
+        Schema::disableForeignKeyConstraints();
         DB::table('role_user')->truncate();
         DB::table('users')->truncate();
+        Schema::enableForeignKeyConstraints();
 
         $user1 = User::create([
             'name' => 'juste',

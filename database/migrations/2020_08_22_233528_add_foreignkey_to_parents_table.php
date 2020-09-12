@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignkeyToAgentsTable extends Migration
+class AddForeignkeyToParentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class AddForeignkeyToAgentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('agents', function (Blueprint $table) {
-            $table->unsignedBigInteger('utilisateur_Id_Utilisateur');
-
-            $table->foreign('utilisateur_Id_Utilisateur')
-                  ->references('id')
-                  ->on('users')
+        Schema::table('parents', function (Blueprint $table) {
+            $table->foreignId('user_id')
+                  ->constrained('users')
                   ->ondelete('cascade')
                   ->onUpdate('cascade');
         });
@@ -31,8 +28,8 @@ class AddForeignkeyToAgentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('agents', function (Blueprint $table) {
-            $table->dropForeign('agents_utilisateur_Id_Utilisateur_foreign');
+        Schema::table('parents', function (Blueprint $table) {
+            $table->dropForeign('parents_user_id_foreign');
         });
     }
 }

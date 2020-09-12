@@ -56,8 +56,7 @@ class UsersController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
          ]);
 
-        User::create($request->all());
-
+        User::create($request->all())->roles()->sync($request->roles);
         return redirect()->route('admin.users.index')->with('success', 'Utilisateur créé.');
     }
 

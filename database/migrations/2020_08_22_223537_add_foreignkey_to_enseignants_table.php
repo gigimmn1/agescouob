@@ -15,17 +15,15 @@ class AddForeignkeyToEnseignantsTable extends Migration
     {
         Schema::table('enseignants', function (Blueprint $table) {
             $table->char('id_Grade',10);
-            $table->unsignedBigInteger('utilisateur_Id_Utilisateur');
-
+            
             $table->foreign('id_Grade')
                   ->references('id_Grade')
                   ->on('grades')
                   ->ondelete('cascade')
                   ->onUpdate('cascade');
                   
-            $table->foreign('utilisateur_Id_Utilisateur')
-                  ->references('id')
-                  ->on('users')
+            $table->foreignId('user_id')
+                  ->constrained('users')
                   ->ondelete('cascade')
                   ->onUpdate('cascade');
 
@@ -42,7 +40,7 @@ class AddForeignkeyToEnseignantsTable extends Migration
     {
         Schema::table('enseignants', function (Blueprint $table) {
             $table->dropForeign('enseignants_id_Grade_foreign');
-            $table->dropForeign('enseignants_utilisateur_Id_Utilisateur_foreign');
+            $table->dropForeign('enseignants_user_id_foreign');
         });
     }
 }
