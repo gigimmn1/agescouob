@@ -64,7 +64,7 @@ class Enseignant extends Model
     /**
      * Get the users who is a enseignant.
      */
-    public function users()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }

@@ -29,5 +29,10 @@ class Agent extends Model
 
     protected $fillable = ['id_Agent','nom_Agent','prenom_Agent','tel_Agent','fonction_Agent','id_Utilisateur'];
 
-    protected $table = ['agents'];
+    protected $table = 'agents';
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
