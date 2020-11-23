@@ -56,12 +56,19 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('emmanuel')
         ]);
 
+        $user7 = User::create([
+            'name' => 'pauline',
+            'email' => 'pauline@uob.ga',
+            'password' => Hash::make('pauline')
+        ]);
+
         $userRole1 = Role::where('nom', 'Super-admin')->first();
         $userRole2 = Role::where('nom', 'Admin')->first();
         $userRole3 = Role::where('nom', 'Agent')->first();
         $userRole4 = Role::where('nom', 'Etudiant')->first();
         $userRole5 = Role::where('nom', 'Enseignant')->first();
         $userRole6 = Role::where('nom', 'Parent')->first();
+        $userRole7 = Role::where('nom', 'Etudiant')->first();
         
         $user1->roles()->attach($userRole1);
         $user2->roles()->attach($userRole2);
@@ -69,5 +76,6 @@ class UsersTableSeeder extends Seeder
         $user4->roles()->attach($userRole4);
         $user5->roles()->attach($userRole5);
         $user6->roles()->attach($userRole6);
+        $user7->roles()->attach($userRole7);
     }
 }

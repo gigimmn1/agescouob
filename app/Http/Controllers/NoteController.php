@@ -27,8 +27,8 @@ class NoteController extends Controller
     public function index()
     {
         $notes = Note::all();
-        $users = User::all();  
-        return view('notes.index')->with('notes', $notes)->with('users', $users);
+        $etudiants = Etudiant::all();  
+        return view('notes.index')->with('notes', $notes)->with('etudiants', $etudiants);
     }
 
     /**
@@ -61,29 +61,16 @@ class NoteController extends Controller
         return redirect('/notes')->with('success', 'Note Enregistré !');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Note $id)
+
+    public function show(Note $note)
     {
-        return view('notes.show', [
-            'note' => $id
-        ]);
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit(Note $note)
     {
-        $note = Note::find($id);
-        return view('notes.edit', compact('note')); 
+        
     }
 
     /**
@@ -112,7 +99,7 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Note $note)
     {
         $note = Note::find($id);
         $note->delete();

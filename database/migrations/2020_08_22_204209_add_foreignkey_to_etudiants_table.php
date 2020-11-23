@@ -14,7 +14,7 @@ class AddForeignkeyToEtudiantsTable extends Migration
     public function up()
     {
         Schema::table('etudiants', function (Blueprint $table) {
-            $table->char('num_Parent',15);
+            $table->char('num_Parent',15)->nullable();
 
             $table->foreignId('user_id')
                   ->constrained('users')
